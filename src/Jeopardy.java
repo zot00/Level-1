@@ -127,7 +127,7 @@ public class Jeopardy implements ActionListener {
 		// Use a pop up to ask the user the question
 		String Panswer = JOptionPane.showInputDialog(question);
 		// If the answer is correct
-			if(Panswer == (correctAnswer)){
+			if(Panswer.equals(correctAnswer)){
 				score = score+prizeMoney;
 				updateScore();
 				JOptionPane.showMessageDialog(null, "Correct!");
@@ -186,7 +186,6 @@ public void playJeopardyTheme() {
 	void showCorrectImage() {
 		showImage("correct.jpg");
 	}
-
 	void showIncorrectImage() {
 		showImage("incorrect.jpg");
 	}
