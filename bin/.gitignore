@@ -9,9 +9,12 @@
 /GetLatestTweet.class
 /HarryPotter.class
 /Houses.class
+/Human.class
 /Jeopardy.class
 /PhotoQuiz.class
 /Platypus.class
+/Robot.class
+/RobotArmy.class
 /SeaCreatures.class
 /SimonSaysRecipe.class
 /Stephen_Hawking.class
@@ -33,6 +36,4 @@
 /spongebob.class
 /spook.png
 /up.png
-/RobotArmy.class
-/Human.class
-/Robot.class
+/SimpleCalculator.class
