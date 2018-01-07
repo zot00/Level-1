@@ -14,13 +14,18 @@
 /Jeopardy.class
 /Kettle$Water.class
 /Kettle.class
+/Movie.class
+/Netflix.class
+/NetflixQueue.class
 /PhotoQuiz.class
 /Platypus.class
 /Robot.class
 /RobotArmy.class
+/Runner.class
 /SeaCreatures.class
 /SimonSaysRecipe.class
 /SimpleCalculator.class
+/Smurfs.class
 /Stephen_Hawking.class
 /TeaBag.class
 /TeaMaker.class
@@ -42,8 +47,3 @@
 /spongebob.class
 /spook.png
 /up.png
-/Smurfs.class
-/Runner.class
-/Netflix.class
-/Movie.class
-/NetflixQueue.class
