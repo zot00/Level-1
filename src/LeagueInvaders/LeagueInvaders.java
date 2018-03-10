@@ -1,12 +1,14 @@
+package LeagueInvaders;
 import java.awt.Dimension;
 
 import javax.swing.*;
-
+// STEP COUNT: 7
+// NUMBER COUNT: 1
 public class LeagueInvaders {
 	JFrame jframe;
 	GamePanel gamepanel;
-	final int WIDTH = 500;
-	final int HEIGHT = 800;
+	final static int WIDTH = 500;
+	final static int HEIGHT = 800;
 	public static void main(String[] args) {
 		LeagueInvaders LI = new LeagueInvaders();
 		LI.setup();
