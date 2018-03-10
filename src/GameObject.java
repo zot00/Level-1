@@ -9,9 +9,10 @@ public class GameObject {
 		
 	}
 	void update() {
-
+		x+=1;
+		y+=1;
 	}
 	void draw(Graphics g) {
-		g.fillRect(10, 10, 100, 100);
+		g.fillRect(x, y, 100, 100);
 	}
 }

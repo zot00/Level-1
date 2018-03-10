@@ -7,13 +7,19 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
-
+// STEP 6
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
+	// GameObject GO = new GameObject(10, 10, 100, 100);
+	final int MENU_STATE = 0;
+	final int GAME_STATE = 1;
+	final int END_STATE = 2;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
+		repaint();
+		// GO.update();
 		repaint();
 	}
 
@@ -26,9 +32,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	@Override
-
 	public void paintComponent(Graphics g) {
-		
+		// GO.draw(g);
 	}
 
 	@Override
