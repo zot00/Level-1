@@ -1,9 +1,6 @@
 package LeagueInvaders;
 import java.awt.Dimension;
-
 import javax.swing.*;
-// STEP COUNT: 7
-// NUMBER COUNT: 1
 public class LeagueInvaders {
 	JFrame jframe;
 	GamePanel gamepanel;

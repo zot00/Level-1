@@ -14,11 +14,12 @@ import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer timer;
+	Font titleFont;
 	// GameObject GO = new GameObject(10, 10, 100, 100);
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
-	int currentState = END_STATE;
+	int currentState = MENU_STATE;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -35,10 +36,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 	}
 
-	GamePanel() {
+	GamePanel() { /*--------------------CONSTRUCTOR--------------------*/
 		timer = new Timer(1000 / 60, this);
+		titleFont = new Font("Arial", Font.PLAIN, 36);
 	}
-	Font titleFont = new Font(titleFont());
 
 	void startGame() {
 		timer.start();
@@ -66,8 +67,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("a key was pressed");
-		if(e.getKeyCode()==KeyEvent.VK_ENTER) {
-			currentState+=1;
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			currentState += 1;
 		}
 		if (currentState > END_STATE) {
 			currentState = MENU_STATE;
@@ -93,8 +94,13 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawMenuState(Graphics g) {
+		g.setFont(titleFont);
 		g.setColor(Color.BLUE);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		g.setColor(Color.YELLOW);
+		g.drawString("VEGETARIAN V. SAUSAGES", 10, 100);
+		g.drawString("Control character with arrows", 0, 200);
+		g.drawString("Shoot with space", 0, 250);
 	}
 
 	public void drawGameState(Graphics g) {
@@ -103,7 +109,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void drawEndState(Graphics g) {
+		g.setFont(titleFont);
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		g.setColor(Color.BLACK);
+		g.drawString("GAME OVER", 100, 100);
 	}
 }
