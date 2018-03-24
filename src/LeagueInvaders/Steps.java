@@ -1,14 +1,51 @@
 package LeagueInvaders;
-//STEP COUNT: 7
-//NUMBER COUNT: 6
-/*In order to draw text, we first have to make a Font object.
-1. In your GamePanel class, create a member variable of a Font object called titleFont.
-2. In the constructor, initialize the Font object. The constructor of the Font class takes three parameters. The first is a String for the type of font you want to display. For now, set it to "Arial". The second parameter is for any stylization you would like to apply to the font. For now, set it to Font.PLAIN. The third parameter is for the size of the font. Set it to 48 for now.
-3. Go to the drawMenuState method. You can set the font with:
-g.setFont(titleFont);
-You can draw text to the screen with:
-        g.drawString("text", x, y);
-Don't forget that you need to set the color of your text as well.
-4. Add a title to the screen to match the League Invaders demo game. You may need to make more than one Font object.
-5. Add the text for the Game Over screen in the drawEndState method.
-6. Do not move on until your title screen and game over screen look like the demo game.*/
+
+// STEP COUNT: 8
+// NUMBER COUNT: 10
+/*
+ * 1. In your GameObject class, delete all the code inside the update and draw
+ * methods, but do not delete the methods.
+ * 
+ * 2. Create a new class called Rocketship. This will be the class to control to
+ * the ship. Yep!
+ * 
+ * 3. Make this class extend from GameObject. This makes the Rocketship class
+ * automatically have all the methods and variables of the GameObject class.
+ * public class Rocketship extends GameObject { }
+ * 
+ * 4. Add a constructor that takes in parameters for the x, y, width, and height
+ * variables. Initialize them by calling the GameObject constructor using
+ * super() and pass in the parameters.
+ * 
+ * 5. Inside the Rocketship class, create an update and a draw method. Make sure
+ * they are spelled the same as the GameObject class. Also, make sure the draw
+ * method takes in the Graphics object. For now, we'll draw all of our game
+ * objects using primitive shapes and colors. We'll change them to pictures
+ * later.
+ * 
+ * 6. In the draw method of the Rocketship class, set the color to blue and draw
+ * a box around the x, y, width, and height of the ship. g.setColor(Color.BLUE);
+ * g.fillRect(x, y, width, height);
+ * 
+ * 7. Go to your GamePanel class and create an object of the Rocketship class in
+ * the member variables. Start it at 250, 700 and make its size 50 by 50.
+ * 
+ * 8. In the updateGameState method, call the Rocketship object's update method.
+ * 
+ * 9. In the drawGameState method, call the Rocketship object's draw method.
+ * Don't forget to pass in the Graphics object.
+ * --------------------------------------------------------------------------------------------------
+ * 10. Run your program. Do you see your blue ship?
+ * --------------------------------------------------------------------------------------------------
+ * 11. Add an integer member variable to the Rocketship class called speed.
+ * 
+ * 12. In the Rocketship class constructor, initialize speed to 5.
+ * 
+ * CHALLENGE! Do not move on until this has been completed. Add code to your
+ * program so that the Rocketship will move with the arrow keys. You will need
+ * to use the keyPressed and keyReleased method inside the GamePanel class. You
+ * will also need to use the Rocketship's update method along with the speed
+ * variable. Feel free to create more variables as needed. There are multiple
+ * ways to solve this. Do not move on until the teacher has verified your
+ * program.
+ */

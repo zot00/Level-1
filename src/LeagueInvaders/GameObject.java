@@ -9,11 +9,10 @@ public class GameObject {
 	GameObject(int x, int y, int width, int height) {
 		
 	}
-	void update() {
-		x+=1;
-		y+=1;
+	public void update() {
+		
 	}
-	void draw(Graphics g) {
-		g.fillRect(x, y, 100, 100);
+	public void draw(Graphics g) {
+		
 	}
 }

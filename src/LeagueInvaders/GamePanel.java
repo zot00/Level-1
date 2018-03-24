@@ -1,7 +1,6 @@
 package LeagueInvaders;
 
 import javax.swing.Timer;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -9,7 +8,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
 import javax.swing.JPanel;
 
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
@@ -20,6 +18,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
+	Rocketship rocketship;
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -36,9 +35,10 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}
 	}
 
-	GamePanel() { /*--------------------CONSTRUCTOR--------------------*/
+	GamePanel() { /*--------------------CONSTRUCTOR--------------------*\                                         																																																																				*/
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 36);
+		rocketship = new Rocketship(0, 0, 50, 50);
 	}
 
 	void startGame() {
@@ -49,7 +49,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		// GO.draw(g);
 		if (currentState == MENU_STATE) {
-			drawMenuState(g);
+			// drawMenuState(g);
+			drawGameState(g);
 		} else if (currentState == GAME_STATE) {
 			drawGameState(g);
 		} else if (currentState == END_STATE) {
@@ -86,7 +87,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void updateGameState() {
-
+		rocketship.update();
 	}
 
 	public void updateEndState() {
@@ -106,6 +107,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
+		g.setColor(Color.MAGENTA);
+		rocketship.draw(g);
+		g.drawString("NIHAO", 78, 80);
 	}
 
 	public void drawEndState(Graphics g) {
@@ -113,6 +117,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 		g.setColor(Color.BLACK);
-		g.drawString("GAME OVER", 100, 100);
+		g.drawString("GAME OVER", 125, 100);
+		g.drawString("You killed " + "IDK" + " Enemies", 50, 150);
+		g.drawString("Press ENTER to restart", 50, 500);
 	}
 }
