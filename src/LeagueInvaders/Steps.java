@@ -1,51 +1,50 @@
 package LeagueInvaders;
 
-// STEP COUNT: 8
-// NUMBER COUNT: 10
+// STEP COUNT: 10
+// NUMBER COUNT: 2
 /*
- * 1. In your GameObject class, delete all the code inside the update and draw
- * methods, but do not delete the methods.
+ * 1. Create a new class called Projectile. Have it extend GameObject the same
+ * as the Rocketship class.
+ * -----------------------------------------------------------------------------
+ * 2. Have the constructor of the Projectile class initialize the x, y, width,
+ * and height variables the same way that you did for the Rocketship class.
+ *----------------------------------------------------------------------------- 
+ * 3. Create a member variable for the speed and initialize it to 10.
  * 
- * 2. Create a new class called Rocketship. This will be the class to control to
- * the ship. Yep!
+ * 4. Add the same update and draw methods you did for the Rocketship class.
  * 
- * 3. Make this class extend from GameObject. This makes the Rocketship class
- * automatically have all the methods and variables of the GameObject class.
- * public class Rocketship extends GameObject { }
+ * 5. In the draw method, set the color to red and draw a rectangle around the
+ * x, y, width, and height of the projectile.
  * 
- * 4. Add a constructor that takes in parameters for the x, y, width, and height
- * variables. Initialize them by calling the GameObject constructor using
- * super() and pass in the parameters.
+ * 6. In the update method, decrement the y value by speed.
  * 
- * 5. Inside the Rocketship class, create an update and a draw method. Make sure
- * they are spelled the same as the GameObject class. Also, make sure the draw
- * method takes in the Graphics object. For now, we'll draw all of our game
- * objects using primitive shapes and colors. We'll change them to pictures
- * later.
+ * 7. In the update method, do a check of the y position. If the y position
+ * becomes less than 0, set isAlive to false. This way, we will stop caring
+ * about the projectile when it goes off the screen.
  * 
- * 6. In the draw method of the Rocketship class, set the color to blue and draw
- * a box around the x, y, width, and height of the ship. g.setColor(Color.BLUE);
- * g.fillRect(x, y, width, height);
+ * 8.. Go to the ObjectManager class and create and initialize an ArrayList of
+ * Projectile objects.
  * 
- * 7. Go to your GamePanel class and create an object of the Rocketship class in
- * the member variables. Start it at 250, 700 and make its size 50 by 50.
+ * 9. Create a method called addProjectile that takes in a Projectile object.
+ * The method simply add this Projectile object to the list.
  * 
- * 8. In the updateGameState method, call the Rocketship object's update method.
+ * 10. Add code to the ObjectManager's update method that iterates through the
+ * list of projectiles and calls their update method.
  * 
- * 9. In the drawGameState method, call the Rocketship object's draw method.
- * Don't forget to pass in the Graphics object.
- * --------------------------------------------------------------------------------------------------
- * 10. Run your program. Do you see your blue ship?
- * --------------------------------------------------------------------------------------------------
- * 11. Add an integer member variable to the Rocketship class called speed.
+ * 11. Add code to the ObjectManager's draw method that iterates through the
+ * list of projectiles and calls their draw method. Don't forget to pass in the
+ * Graphics object.
  * 
- * 12. In the Rocketship class constructor, initialize speed to 5.
+ * 12. Go to your GamePanel class. When the SPACE key is pressed, add a new
+ * Projectile object to the ObjectManager. Use the Make the width and height of
+ * the projectile 10 by 10. Use the rocket's x and y position for the starting x
+ * and y position of the projectile.
  * 
- * CHALLENGE! Do not move on until this has been completed. Add code to your
- * program so that the Rocketship will move with the arrow keys. You will need
- * to use the keyPressed and keyReleased method inside the GamePanel class. You
- * will also need to use the Rocketship's update method along with the speed
- * variable. Feel free to create more variables as needed. There are multiple
- * ways to solve this. Do not move on until the teacher has verified your
- * program.
+ * manager.addProjectile(new Projectile(rocket.x, rocket.y, 10, 10));
+ * 
+ * 13. Run your program. Do you see projectiles fire when you press SPACE?
+ * 
+ * 14. Adjust the starting x and y positions so that the projectile fires from
+ * the center of the rocket.
+ * 
  */

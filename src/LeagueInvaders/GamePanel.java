@@ -18,7 +18,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
 	int currentState = MENU_STATE;
-	Rocketship rocketship;
+	Rocketship rocketship = new Rocketship(200, 200, 50, 50);
+	ObjectManager OM = new ObjectManager(rocketship);
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -38,7 +39,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	GamePanel() { /*--------------------CONSTRUCTOR--------------------*\                                         																																																																				*/
 		timer = new Timer(1000 / 60, this);
 		titleFont = new Font("Arial", Font.PLAIN, 36);
-		rocketship = new Rocketship(0, 0, 50, 50);
 	}
 
 	void startGame() {
@@ -61,13 +61,24 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("a key was typed");
+
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("a key was pressed");
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			rocketship.y -= rocketship.speed;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			rocketship.y += rocketship.speed;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			rocketship.x += rocketship.speed;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			rocketship.x -= rocketship.speed;
+		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			currentState += 1;
 		}
@@ -79,7 +90,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		System.out.println("a key was released");
+
 	}
 
 	public void updateMenuState() {
@@ -87,7 +98,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	public void updateGameState() {
-		rocketship.update();
+		OM.update();
 	}
 
 	public void updateEndState() {
@@ -108,7 +119,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 		g.setColor(Color.MAGENTA);
-		rocketship.draw(g);
+		OM.draw(g);
 		g.drawString("NIHAO", 78, 80);
 	}
 
