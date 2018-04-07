@@ -82,6 +82,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			currentState += 1;
 		}
+		if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+			OM.addProjectile(new Projectile(rocketship.x, rocketship.y, 10, 10));
+		}
 		if (currentState > END_STATE) {
 			currentState = MENU_STATE;
 		}
@@ -120,7 +123,6 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.fillRect(0, 0, LeagueInvaders.WIDTH, LeagueInvaders.HEIGHT);
 		g.setColor(Color.MAGENTA);
 		OM.draw(g);
-		g.drawString("NIHAO", 78, 80);
 	}
 
 	public void drawEndState(Graphics g) {
