@@ -49,8 +49,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void paintComponent(Graphics g) {
 		// GO.draw(g);
 		if (currentState == MENU_STATE) {
-			// drawMenuState(g);
-			drawGameState(g);
+			drawMenuState(g);
 		} else if (currentState == GAME_STATE) {
 			drawGameState(g);
 		} else if (currentState == END_STATE) {
@@ -68,16 +67,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyPressed(KeyEvent e) {
 		// TODO Auto-generated method stub
 		if (e.getKeyCode() == KeyEvent.VK_UP) {
-			rocketship.y -= rocketship.speed;
+			rocketship.up=true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			rocketship.y += rocketship.speed;
+			rocketship.down=true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			rocketship.x += rocketship.speed;
+			rocketship.right=true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			rocketship.x -= rocketship.speed;
+			rocketship.left=true;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			currentState += 1;
@@ -93,7 +92,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-
+		if (e.getKeyCode() == KeyEvent.VK_UP) {
+			rocketship.up=false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+			rocketship.down=false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+			rocketship.right=false;
+		}
+		if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+			rocketship.left=false;
+		}
 	}
 
 	public void updateMenuState() {
@@ -102,6 +112,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	public void updateGameState() {
 		OM.update();
+		rocketship.update();
 	}
 
 	public void updateEndState() {
