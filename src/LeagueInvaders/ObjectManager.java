@@ -1,12 +1,14 @@
 package LeagueInvaders;
 
 import java.awt.*;
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class ObjectManager {
 	long enemyTimer = 0;
 	int enemySpawnTime = 500;
+	public int score = 0;
 	Rocketship rocket;
 	ArrayList<Projectile> projectiles = new ArrayList<>();
 	ArrayList<Alien> aliens = new ArrayList<>();
@@ -65,19 +67,28 @@ public class ObjectManager {
 				projectiles.remove(i);
 			}
 		}
+
 	}
+
 	public void checkCollision() {
 		for (int i = 0; i < aliens.size(); i++) {
 			if (aliens.get(i).collisionBox.intersects(rocket.collisionBox)) {
-				aliens.get(i).isAlive=false;
-				rocket.isAlive=false;
+				aliens.get(i).isAlive = false;
+				rocket.isAlive = false;
 			}
 		}
 		for (int i = 0; i < aliens.size(); i++) {
-			if (aliens.get(i).collisionBox.intersects(projectiles.get(i).collisionBox)) {
-				aliens.get(i).isAlive=false;
-				projectiles.get(i).isAlive=false;
+			for (int j = 0; j < projectiles.size(); j++) {
+				if (aliens.get(i).collisionBox.intersects(projectiles.get(j).collisionBox)) {
+					aliens.get(i).isAlive = false;
+					projectiles.get(j).isAlive = false;
+					score += 1;
+				}
 			}
 		}
+	}
+
+	public int getScore() {
+		return score;
 	}
 }

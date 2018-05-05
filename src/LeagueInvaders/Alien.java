@@ -25,7 +25,7 @@ public class Alien extends GameObject {
 			}
 			toggle = 0;
 		}
-		y=y+random.nextInt(13)-5;
+		y=y+random.nextInt(15)-5;
 		if(direction == true) {
 			x=x+r.nextInt(5);
 		}
@@ -35,7 +35,6 @@ public class Alien extends GameObject {
 	}
 
 	public void draw(Graphics g) {
-		g.setColor(Color.YELLOW);
-		g.drawRect(x, y, width, height);
+		 g.drawImage(GamePanel.alienImg, x, y, width, height, null);
 	}
 }

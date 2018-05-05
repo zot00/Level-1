@@ -1,7 +1,7 @@
 package LeagueInvaders;
 
 // STEP COUNT: 12
-// NUMBER COUNT: 9
+// NUMBER COUNT: 10
 /* 
  * 1. In your GameObject class, create an object of the Rectangle class in your
  * member variables. Call this object collisionBox. You will have to import the
@@ -30,21 +30,21 @@ package LeagueInvaders;
  * 
  * 8. Add code that iterates through all the projectiles and all the aliens. If
  * any of them collide, set their isAlive variables to false.
- * -----------------------------------------------------------------------------
+ * 
  * 9. Go to the GamePanel class. In the updateGameState method, use your
  * ObjectManager object to call the checkCollision method and the purgeObjects
  * method.
- * -----------------------------------------------------------------------------
+ * 
  * 10. Run your program. Do the aliens and ship disappear when they are supposed
  * to?
  * 
  * 11. In the updateGameState method, create an if statement that checks the
  * isAlive variable of your Rocketship object. If it is false, set the
  * currentState equal to END_STATE
- * 
+ * -----------------------------------------------------------------------------
  * 12. In the ObjectManager class, create a member integer called score and
  * initialize it to zero.
- * 
+ * -----------------------------------------------------------------------------
  * 13. Create a getter for the score variable.
  * 
  * 14. Increment the score by one every time an enemy is killed by a projectile.

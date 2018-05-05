@@ -7,12 +7,11 @@ public class Projectile extends GameObject{
 	int speed;
 	Projectile(int x, int y, int width, int height) {
 		super(x+20, y, width, height);
-		speed=5;
+		speed=10;
 		// TODO Auto-generated constructor stub
 	}
 	public void draw(Graphics g) {
-		g.setColor(Color.RED);
-		g.fillRect(x, y, width, height);
+		 g.drawImage(GamePanel.bulletImg, x, y, width, height, null);
 	}
 	public void update() {
 		super.update();
