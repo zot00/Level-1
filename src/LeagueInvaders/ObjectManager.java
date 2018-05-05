@@ -53,7 +53,31 @@ public class ObjectManager {
 			}
 		}
 	}
+
 	public void purgeObjects() {
-		
+		for (int i = 0; i < aliens.size(); i++) {
+			if (aliens.get(i).isAlive == false) {
+				aliens.remove(i);
+			}
+		}
+		for (int i = 0; i < projectiles.size(); i++) {
+			if (projectiles.get(i).isAlive == false) {
+				projectiles.remove(i);
+			}
+		}
+	}
+	public void checkCollision() {
+		for (int i = 0; i < aliens.size(); i++) {
+			if (aliens.get(i).collisionBox.intersects(rocket.collisionBox)) {
+				aliens.get(i).isAlive=false;
+				rocket.isAlive=false;
+			}
+		}
+		for (int i = 0; i < aliens.size(); i++) {
+			if (aliens.get(i).collisionBox.intersects(projectiles.get(i).collisionBox)) {
+				aliens.get(i).isAlive=false;
+				projectiles.get(i).isAlive=false;
+			}
+		}
 	}
 }

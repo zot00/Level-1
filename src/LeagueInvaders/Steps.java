@@ -1,47 +1,55 @@
 package LeagueInvaders;
 
-// STEP COUNT: 11
-// NUMBER COUNT: 10
+// STEP COUNT: 12
+// NUMBER COUNT: 9
 /* 
- * 1. Create a new class called Alien that also extends GameObject.
+ * 1. In your GameObject class, create an object of the Rectangle class in your
+ * member variables. Call this object collisionBox. You will have to import the
+ * class.
  * 
- * 2. Add a constructor that initializes the x, y, width, and height variables
- * same as the Rocketship and Projectile classes.
+ * 2. Initialize the collision box in the GameObject constructor. It takes four
+ * parameters. Use the x, y, width, and height variables.
  * 
- * 3. Add the update and draw methods same as the Rocketship and Projectile
+ * 3. In the update method of the GameObject class, update the collision box
+ * with the x, y, width, and height variables. collisionBox.setBounds(x, y,
+ * width, height);
+ * 
+ * 4. At the very top of the update method inside the Rocketship class, add this
+ * line: super.update();
+ * 
+ * 5. Add these same line to the update method in the Alien and the Projectile
  * classes.
  * 
- * 4. In the draw method, draw a yellow box around the x, y, width, and height
- * variables.
+ * 6. Go to the ObjectManager class and create a method called checkCollision.
  * 
- * 5. In the update method, increment the y variable.
+ * 7. Add code to the checkCollision method that checks if the player collides
+ * with any enemies. If so, set the player's isAlive variable to false.
  * 
- * 6. Go to the ObjectManager class. Create an ArrayList of Alien objects.
+ * for(Alien a : alienList){ if(rocket.collisionBox.intersects(a.collisionBox){
+ * rocket.isAlive = false; } }
  * 
- * 7. Create a method called addAlien that takes in an Alien and adds it to the
- * list.
- * 
- * 8. Add to the update and draw methods so the enemies get updated and drawn.
- * 
- * 9. In the ObjectManager class, create a method called manageEnemies. You can
- * come up with your own algorithm for spawning new enemies or just copy the
- * method below. If you use the method below, you will need to create two new
- * member variables. One is a long called enemyTimer that can be initilized to
- * 0. The other is an int called enemySpawnTime. This is the delay before new
- * enemies arrive. The value is in milliseconds, so 1000 = 1 second. public void
- * manageEnemies(){ if(System.currentTimeMillis() - enemyTimer >=
- * enemySpawnTime){ addAlien(new Alien(new
- * Random().nextInt(LeagueInvaders.WIDTH), 0, 50, 50));
- * enemyTimer = System.currentTimeMillis(); } }
+ * 8. Add code that iterates through all the projectiles and all the aliens. If
+ * any of them collide, set their isAlive variables to false.
  * -----------------------------------------------------------------------------
- * 10. Create a void method in the ObjectManager class called purgeObjects().
- * Add code to the purgeObjects method to remove any dead game objects.
+ * 9. Go to the GamePanel class. In the updateGameState method, use your
+ * ObjectManager object to call the checkCollision method and the purgeObjects
+ * method.
  * -----------------------------------------------------------------------------
- * 11. Go to the GamePanel class. From the updateGameState method, call the
- * ObjectManager's manageEnemies method.
+ * 10. Run your program. Do the aliens and ship disappear when they are supposed
+ * to?
  * 
- * 12. Run your game. Do you see enemies appearing?
+ * 11. In the updateGameState method, create an if statement that checks the
+ * isAlive variable of your Rocketship object. If it is false, set the
+ * currentState equal to END_STATE
  * 
- * CHALLENGE Add code to the update method of the Alien class to give the aliens
- * a unique moving pattern. Try to make it fun but challenging.
+ * 12. In the ObjectManager class, create a member integer called score and
+ * initialize it to zero.
+ * 
+ * 13. Create a getter for the score variable.
+ * 
+ * 14. Increment the score by one every time an enemy is killed by a projectile.
+ * 
+ * 15. Use the getScore method in the ObjectManager class to update the player's
+ * score.
+ * 
  */
