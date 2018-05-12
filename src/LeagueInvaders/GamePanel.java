@@ -108,7 +108,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			currentState += 1;
 		}
 		if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-			OM.addProjectile(new Projectile(rocketship.x, rocketship.y, 10, 10));
+			OM.addProjectile(new Projectile(rocketship.x, rocketship.y, 20, 100));
 		}
 		if (currentState > END_STATE) {
 			currentState = MENU_STATE;
