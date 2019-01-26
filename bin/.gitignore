@@ -8,6 +8,7 @@
 /DuelingButtons.class
 /EasyButton.class
 /FortuneTeller.class
+/GamePanel.class
 /GetLatestTweet.class
 /Gridworld.class
 /HarryPotter.class
@@ -55,4 +56,3 @@
 /spongebob.class
 /spook.png
 /up.png
-/GamePanel.class
